@@ -1,0 +1,10 @@
+{
+  "$": {
+    "btn": {
+      "close": "Zavřit"
+    },
+    "info": {
+      "rows_per_page": "Počet záznamů"
+    }
+  }
+}

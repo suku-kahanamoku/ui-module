@@ -1,0 +1,10 @@
+{
+  "$": {
+    "btn": {
+      "close": "Close"
+    },
+    "info": {
+      "rows_per_page": "Rows per page"
+    }
+  }
+}
