@@ -1,16 +1,23 @@
 <script setup lang="ts">
-import { h, resolveComponent, nextTick } from "vue";
+import {
+  h,
+  resolveComponent,
+  nextTick,
+  computed,
+  ref,
+  useTemplateRef,
+  useLang,
+} from "#imports";
 import type { TableColumn } from "@nuxt/ui";
 
-import type { IFormConfig } from "@/modules/form-module/runtime/types";
-import type { IItem } from "@suku-kahanamoku/common-module/types";
+import type { IConfig, IItem } from "@suku-kahanamoku/common-module/types";
 
 const UCheckbox = resolveComponent("UCheckbox");
 const UButton = resolveComponent("UButton");
 const UDropdownMenu = resolveComponent("UDropdownMenu");
 
 const props = defineProps<{
-  config: IFormConfig;
+  config: IConfig;
   data?: IItem[];
   loading?: boolean;
 }>();
