@@ -56,15 +56,16 @@ export default defineNuxtModule<ModuleOptions>({
     // Config pro lang-module
     nuxtOpt.langModule = defu(nuxtOpt.langModule || {}, {
       locales: [
-        /* {
+        {
           code: "en",
-          files: [{ path: resolve("./runtime/assets/locales/en.json") }],
-        }, */
+          file: resolve("./runtime/assets/locales/en.json"),
+        },
         {
           code: "cs",
-          files: [{ path: resolve("./runtime/assets/locales/cs.json") }],
+          file: resolve("./runtime/assets/locales/cs.json"),
         },
       ],
+      langDir: resolve("./runtime/assets/locales"),
     });
 
     // Vynucení Tailwind konfigurace pro runtime komponenty
