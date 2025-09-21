@@ -40,31 +40,43 @@ export function useToastify() {
   function _callToast(item: IMsg): void {
     if (!item) return;
 
-    const toastOptions = {
-      title: t(item.message),
-      color: "",
-      icon: "",
-      ...item.options,
-    };
+    type ToastColor =
+      | "success"
+      | "error"
+      | "warning"
+      | "info"
+      | "primary"
+      | "secondary"
+      | "neutral";
+
+    let color: ToastColor;
+    let icon: string;
 
     switch (item.type) {
       case "success":
-        toastOptions.color = "green";
-        toastOptions.icon = "i-heroicons-check-circle";
+        color = "success";
+        icon = "i-heroicons-check-circle";
         break;
       case "error":
-        toastOptions.color = "red";
-        toastOptions.icon = "i-heroicons-x-circle";
+        color = "error";
+        icon = "i-heroicons-x-circle";
         break;
       case "warning":
-        toastOptions.color = "red";
-        toastOptions.icon = "i-heroicons-exclamation-triangle";
+        color = "warning";
+        icon = "i-heroicons-exclamation-triangle";
         break;
       default:
-        toastOptions.color = "red";
-        toastOptions.icon = "i-heroicons-information-circle";
+        color = "info";
+        icon = "i-heroicons-information-circle";
         break;
     }
+
+    const toastOptions = {
+      title: t(item.message) as string,
+      color,
+      icon,
+      ...item.options,
+    };
 
     toast.add(toastOptions);
   }
