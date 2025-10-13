@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useLang } from "#imports";
-
 const props = defineProps<{
   url: string;
   name: string;

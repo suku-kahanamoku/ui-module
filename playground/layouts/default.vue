@@ -15,6 +15,8 @@ const menuItems = [
 
 <template>
   <div class="min-h-screen flex flex-col">
+    <CmpHeader />
+
     <main>
       <slot></slot>
     </main>
