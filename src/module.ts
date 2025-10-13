@@ -58,14 +58,13 @@ export default defineNuxtModule<ModuleOptions>({
       locales: [
         {
           code: "en",
-          file: resolve("./runtime/assets/locales/en.json"),
+          files: [{ path: resolve("./runtime/assets/locales/en.json") }],
         },
         {
           code: "cs",
-          file: resolve("./runtime/assets/locales/cs.json"),
+          files: [{ path: resolve("./runtime/assets/locales/cs.json") }],
         },
       ],
-      langDir: resolve("./runtime/assets/locales"),
     });
 
     // Vynucení Tailwind konfigurace pro runtime komponenty
