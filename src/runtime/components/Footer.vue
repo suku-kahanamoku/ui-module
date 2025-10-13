@@ -7,7 +7,6 @@ const props = defineProps<{
 }>();
 
 const today = new Date();
-const { lang } = useLang();
 </script>
 
 <template>

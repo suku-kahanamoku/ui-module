@@ -5,6 +5,11 @@
     },
     "info": {
       "rows_per_page": "Rows per page"
+    },
+    "footer": {
+      "copyright": "All rights reserved",
+      "reserved": "All rights reserved",
+      "made_by": "Made by"
     }
   }
 }

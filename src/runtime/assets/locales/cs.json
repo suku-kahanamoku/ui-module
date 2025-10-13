@@ -5,6 +5,11 @@
     },
     "info": {
       "rows_per_page": "Počet záznamů"
+    },
+    "footer": {
+      "copyright": "Všechna práva vyhrazena",
+      "reserved": "Všechna práva vyhrazena",
+      "made_by": "Vytvořil"
     }
   }
 }
