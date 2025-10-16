@@ -58,25 +58,14 @@ export default defineNuxtModule<ModuleOptions>({
       locales: [
         {
           code: "en",
-          files: [{ path: resolve("./runtime/assets/locales/en.json") }],
+          file: resolve("./runtime/assets/locales/en.json"),
         },
         {
           code: "cs",
-          files: [{ path: resolve("./runtime/assets/locales/cs.json") }],
+          file: resolve("./runtime/assets/locales/cs.json"),
         },
       ],
-    });
-
-    // Vynucení Tailwind konfigurace pro runtime komponenty
-    nuxtOpt.tailwindcss = defu(nuxtOpt.tailwindcss || {}, {
-      config: {
-        content: [
-          resolve("./runtime/components/**/*.{vue,mjs,js,ts}"),
-          resolve("./runtime/layouts/**/*.{vue,mjs,js,ts}"),
-          resolve("./runtime/pages/**/*.{vue,mjs,js,ts}"),
-          resolve("./runtime/*.{mjs,js,ts}"),
-        ],
-      },
+      langDir: resolve("./runtime/assets/locales"),
     });
 
     // Přidání UI pluginu
