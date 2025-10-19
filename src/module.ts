@@ -1,13 +1,11 @@
 import {
   defineNuxtModule,
-  addPlugin,
   addComponentsDir,
   addImportsDir,
   installModule,
   createResolver,
   hasNuxtModule,
 } from "@nuxt/kit";
-import { defu } from "defu";
 
 /**
  * @typedef {Object} ModuleOptions
@@ -52,9 +50,20 @@ export default defineNuxtModule<ModuleOptions>({
   async setup(_options, _nuxt) {
     const { resolve } = createResolver(import.meta.url);
 
-    // Přidání UI pluginu
-    addPlugin({
-      src: resolve("./runtime/plugins/ui-plugin"),
+    _nuxt.hook("i18n:registerModule", (register) => {
+      register({
+        langDir: resolve("./runtime/assets/locales"),
+        locales: [
+          {
+            code: "en",
+            file: "en.json",
+          },
+          {
+            code: "cs",
+            file: "cs.json",
+          },
+        ],
+      });
     });
 
     // Přidání komponent
@@ -81,21 +90,5 @@ export default defineNuxtModule<ModuleOptions>({
     if (!hasNuxtModule("@nuxt/ui")) {
       await installModule("@nuxt/ui");
     }
-
-    _nuxt.hook("i18n:registerModule", (register) => {
-      register({
-        langDir: resolve("./runtime/assets/locales"),
-        locales: [
-          {
-            code: "en",
-            file: "en.json",
-          },
-          {
-            code: "cs",
-            file: "cs.json",
-          },
-        ],
-      });
-    });
   },
 });
