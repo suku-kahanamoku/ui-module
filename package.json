@@ -1,8 +1,11 @@
 {
   "name": "@suku-kahanamoku/ui-module",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "UI module",
-  "repository": "@suku-kahanamoku/ui-module",
+  "repository": {
+    "type": "git",
+    "url": "@suku-kahanamoku/ui-module"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {
@@ -27,7 +30,7 @@
     "dist"
   ],
   "scripts": {
-    "prepack": "nuxt-module-build",
+    "prepack": "nuxt-module-build build",
     "dev": "npm run dev:prepare && nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
