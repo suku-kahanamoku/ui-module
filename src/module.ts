@@ -49,6 +49,7 @@ export default defineNuxtModule<ModuleOptions>({
    */
   async setup(_options, _nuxt) {
     const { resolve } = createResolver(import.meta.url);
+    const nuxtOpt = _nuxt.options as any;
 
     _nuxt.hook("i18n:registerModule", (register) => {
       register({
@@ -65,6 +66,10 @@ export default defineNuxtModule<ModuleOptions>({
         ],
       });
     });
+
+    // Add module stylesheet to consuming app
+    nuxtOpt.css = nuxtOpt.css || [];
+    nuxtOpt.css.push(resolve("./runtime/assets/css/main.css"));
 
     // Přidání komponent
     addComponentsDir({
