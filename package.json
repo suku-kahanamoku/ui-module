@@ -19,6 +19,7 @@
     }
   },
   "main": "./dist/module.mjs",
+  "types": "./src/runtime/types.d.ts",
   "typesVersions": {
     "*": {
       ".": [
@@ -27,7 +28,8 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "src/runtime"
   ],
   "scripts": {
     "prepack": "nuxt-module-build build",

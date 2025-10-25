@@ -12,4 +12,10 @@ declare module "@vue/runtime-core" {
   }
 }
 
+declare module "vue" {
+  export interface ComponentCustomProperties {
+    $colorMode: ReturnType<typeof useColorMode>;
+  }
+}
+
 export * from "./types/cmp.interface";

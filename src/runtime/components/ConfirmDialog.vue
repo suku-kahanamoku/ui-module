@@ -5,9 +5,6 @@ import type { IBtn } from "../types/cmp.interface";
 
 defineProps<
   {
-    /**
-     * @description Akce pro tlačítka dialogu
-     */
     actions?: {
       yes?: IBtn;
       no?: IBtn;
