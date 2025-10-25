@@ -67,10 +67,6 @@ export default defineNuxtModule<ModuleOptions>({
       });
     });
 
-    // Add module stylesheet to consuming app
-    nuxtOpt.css = nuxtOpt.css || [];
-    nuxtOpt.css.push(resolve("./runtime/assets/css/main.css"));
-
     // Přidání komponent
     addComponentsDir({
       path: resolve("./runtime/components"),
