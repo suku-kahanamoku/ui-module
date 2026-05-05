@@ -1,6 +1,19 @@
 # Changelog
 
 
+## v1.0.31
+
+[compare changes](https://undefined/undefined/compare/v1.0.30...v1.0.31)
+
+### 🏡 Chore
+
+- Update dependencies (8b46fab)
+- Update package-lock.json (d4cba08)
+
+### ❤️ Contributors
+
+- Suku <sukusovi@gmail.com>
+
 ## v1.0.30
 
 [compare changes](https://undefined/undefined/compare/v1.0.29...v1.0.30)
