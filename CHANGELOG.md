@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.27
+
+[compare changes](https://undefined/undefined/compare/v1.0.26...v1.0.27)
+
+### 🏡 Chore
+
+- Downgrade @nuxt/ui to 4.6.1 to fix reka-ui infinite loop (89cad6e)
+
+### ❤️ Contributors
+
+- Suku <sukusovi@gmail.com>
+
 ## v1.0.26
 
 [compare changes](https://undefined/undefined/compare/v1.0.25...v1.0.26)
