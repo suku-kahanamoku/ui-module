@@ -1,6 +1,6 @@
 {
   "name": "@suku-kahanamoku/ui-module",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "UI module",
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@nuxt/kit": "^4.4.0",
-    "@nuxt/ui": "^4.6.1",
+    "@nuxt/ui": "4.6.1",
     "@suku-kahanamoku/common-module": "latest",
     "@suku-kahanamoku/lang-module": "latest",
     "defu": "^6.1.4"
