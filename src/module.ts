@@ -87,6 +87,11 @@ export default defineNuxtModule<ModuleOptions>({
       await installModule("@suku-kahanamoku/lang-module");
     }
 
+    // Instalace nuxt-icon modulu (nutné pro UIcon komponentu z @nuxt/ui)
+    if (!hasNuxtModule("@nuxt/icon")) {
+      await installModule("@nuxt/icon");
+    }
+
     // Instalace nuxt-ui modulu
     if (!hasNuxtModule("@nuxt/ui")) {
       await installModule("@nuxt/ui");
