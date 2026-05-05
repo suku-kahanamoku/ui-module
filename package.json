@@ -1,6 +1,6 @@
 {
   "name": "@suku-kahanamoku/ui-module",
-  "version": "1.0.28",
+  "version": "1.0.29",
   "description": "UI module",
   "repository": {
     "type": "git",
@@ -43,6 +43,7 @@
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit"
   },
   "dependencies": {
+    "@nuxt/icon": "^2.2.1",
     "@nuxt/kit": "^4.4.0",
     "@nuxt/ui": "4.6.1",
     "@suku-kahanamoku/common-module": "latest",
