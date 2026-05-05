@@ -87,6 +87,11 @@ export default defineNuxtModule<ModuleOptions>({
       await installModule("@suku-kahanamoku/lang-module");
     }
 
+    // Instalace color-mode modulu (nutné pro UColorModeButton z @nuxt/ui)
+    if (!hasNuxtModule("@nuxtjs/color-mode")) {
+      await installModule("@nuxtjs/color-mode");
+    }
+
     // Instalace nuxt-icon modulu (nutné pro UIcon komponentu z @nuxt/ui)
     if (!hasNuxtModule("@nuxt/icon")) {
       await installModule("@nuxt/icon");
