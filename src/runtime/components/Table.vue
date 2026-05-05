@@ -6,8 +6,8 @@ import {
   computed,
   ref,
   useTemplateRef,
-  useLang,
-} from "#imports";
+} from "vue";
+import { useLang } from "#imports";
 import type { TableColumn } from "@nuxt/ui";
 
 import type { IConfig, IItem } from "@suku-kahanamoku/common-module/types";

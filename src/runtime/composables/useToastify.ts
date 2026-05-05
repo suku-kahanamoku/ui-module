@@ -96,5 +96,25 @@ export function useToastify() {
     }
   }
 
-  return { display };
+  function success(message: string, options?: Record<string, any>): void {
+    _callToast({ type: "success", message, options });
+  }
+
+  function error(message: string | Error | any, options?: Record<string, any>): void {
+    const msg =
+      message instanceof Error
+        ? message?.data?.message || message.message
+        : message?.data?.message || message?.message || message;
+    _callToast({ type: "error", message: msg, options });
+  }
+
+  function info(message: string, options?: Record<string, any>): void {
+    _callToast({ type: "info", message, options });
+  }
+
+  function warning(message: string, options?: Record<string, any>): void {
+    _callToast({ type: "warning", message, options });
+  }
+
+  return { display, success, error, info, warning };
 }
