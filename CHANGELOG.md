@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.0.33
+
+[compare changes](https://undefined/undefined/compare/v1.0.32...v1.0.33)
+
+### 🩹 Fixes
+
+- **table:** Render first list column from config field (9b714dc)
+
+### ❤️ Contributors
+
+- Suku <sukusovi@gmail.com>
+
 ## v1.0.32
 
 [compare changes](https://undefined/undefined/compare/v1.0.31...v1.0.32)
