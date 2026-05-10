@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.1.0
+
+[compare changes](https://undefined/undefined/compare/v1.0.35...v1.1.0)
+
+### 🚀 Enhancements
+
+- Filter inputs via CmpField, sort icons via UIcon, dumb emits (sort/page/filter) (bac18d2)
+
+### ❤️ Contributors
+
+- Suku <sukusovi@gmail.com>
+
 ## v1.0.35
 
 [compare changes](https://undefined/undefined/compare/v1.0.34...v1.0.35)
