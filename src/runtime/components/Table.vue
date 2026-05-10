@@ -5,16 +5,23 @@ import {
   nextTick,
   computed,
   ref,
+  watch,
   useTemplateRef,
 } from "vue";
 import { useLang } from "#imports";
 import type { TableColumn } from "@nuxt/ui";
 
-import type { IConfig, IItem, IPagination } from "@suku-kahanamoku/common-module/types";
+import type {
+  IConfig,
+  IItem,
+  IPagination,
+} from "@suku-kahanamoku/common-module/types";
 
 const UCheckbox = resolveComponent("UCheckbox");
 const UButton = resolveComponent("UButton");
 const UDropdownMenu = resolveComponent("UDropdownMenu");
+const UIcon = resolveComponent("UIcon");
+const CmpField = resolveComponent("CmpField");
 
 const props = defineProps<{
   config: IConfig;
@@ -27,6 +34,7 @@ const emits = defineEmits<{
   (e: "delete", value: IItem): void;
   (e: "sort", value: Record<string, number>[]): void;
   (e: "page", page: number): void;
+  (e: "filter", value: Record<string, string>): void;
 }>();
 
 const selected = defineModel("selected");
@@ -34,6 +42,22 @@ const selected = defineModel("selected");
 const { t } = useLang();
 const tableEl = useTemplateRef("tableEl");
 const selection = ref({});
+
+/** Local filter values — synced from config.fields[].value when config changes (URL-driven). */
+const filterValues = ref<Record<string, string>>({});
+
+watch(
+  () => props.config?.fields,
+  (fields) => {
+    fields?.forEach((f: any) => {
+      const newVal = (f.value as string) ?? "";
+      if (filterValues.value[f.name] !== newVal) {
+        filterValues.value[f.name] = newVal;
+      }
+    });
+  },
+  { immediate: true, deep: true },
+);
 
 /** Sort state derived directly from config — always in sync, no watch needed. */
 const sorting = computed<Record<string, number>[]>(
@@ -66,21 +90,39 @@ const columns = computed<TableColumn<IItem>[]>(() => {
     props.config?.fields?.map((f) => ({
       accessorKey: f.name,
       enableSorting: false,
-      header: () =>
-        h(UButton, {
-          color: "neutral",
-          variant: "ghost",
-          label: t(f.label!),
-          icon:
-            getSortDir(f.name) === "asc"
-              ? "i-lucide-arrow-up"
-              : getSortDir(f.name) === "desc"
-                ? "i-lucide-arrow-down"
-                : undefined,
-          trailing: true,
-          class: "-mx-2.5",
-          onClick: () => toggleSort(f.name),
-        }),
+      header: () => {
+        const dir = getSortDir(f.name);
+        return h("div", { class: "flex flex-col gap-1" }, [
+          h(
+            "div",
+            {
+              class: "flex items-center gap-1 cursor-pointer select-none",
+              onClick: () => toggleSort(f.name),
+            },
+            [
+              t(f.label!),
+              dir
+                ? h(UIcon, {
+                    name:
+                      dir === "asc"
+                        ? "i-lucide-arrow-up"
+                        : "i-lucide-arrow-down",
+                    class: "w-3.5 h-3.5 shrink-0",
+                  })
+                : null,
+            ],
+          ),
+          h(CmpField, {
+            modelValue: filterValues.value[f.name] ?? "",
+            field: { ...f, label: undefined },
+            onClick: (e: MouseEvent) => e.stopPropagation(),
+            "onUpdate:modelValue": (val: any) => {
+              filterValues.value[f.name] = val;
+              emits("filter", { ...filterValues.value });
+            },
+          }),
+        ]);
+      },
     })) ?? [];
 
   result.unshift({
@@ -129,11 +171,11 @@ const columns = computed<TableColumn<IItem>[]>(() => {
             .filter(
               (column) =>
                 column.getCanHide() &&
-                !["select", "actions"].includes(column.id)
+                !["select", "actions"].includes(column.id),
             )
             .map((column) => ({
               label: t(
-                props.config.fields?.find((f) => f.name === column.id)?.label!
+                props.config.fields?.find((f) => f.name === column.id)?.label!,
               ),
               type: "checkbox" as const,
               checked: column.getIsVisible(),
@@ -153,7 +195,7 @@ const columns = computed<TableColumn<IItem>[]>(() => {
             variant: "ghost",
             class: "ml-auto",
             "aria-label": "Actions dropdown",
-          })
+          }),
       ),
     cell: ({ row }) =>
       h(UButton, {
