@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.1.1
+
+[compare changes](https://undefined/undefined/compare/v1.1.0...v1.1.1)
+
+### 🩹 Fixes
+
+- **table:** Use colName ()
+
+### ❤️ Contributors
+
+-  Name For AccessorKey And Link Label <af67ed9>
+
 ## v1.1.0
 
 [compare changes](https://undefined/undefined/compare/v1.0.35...v1.1.0)
