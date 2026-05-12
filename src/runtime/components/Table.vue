@@ -9,6 +9,7 @@ import {
   useTemplateRef,
 } from "vue";
 import { useLang } from "#imports";
+import { GET_OBJECT_PARAM } from "@suku-kahanamoku/common-module/utils";
 import type { TableColumn } from "@nuxt/ui";
 
 import type {
@@ -218,7 +219,7 @@ const columns = computed<TableColumn<IItem>[]>(() => {
       to: row.original.gen_data?.url,
       color: "link",
       variant: "link",
-      label: String(row.original?.[firstFieldKey] ?? ""),
+      label: String(GET_OBJECT_PARAM(row.original, firstFieldKey) ?? ""),
     });
 
   return result;
