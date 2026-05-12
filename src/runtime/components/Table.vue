@@ -88,7 +88,7 @@ function toggleSort(field: string) {
 const columns = computed<TableColumn<IItem>[]>(() => {
   const result: TableColumn<IItem>[] =
     props.config?.fields?.map((f) => ({
-      accessorKey: f.name,
+      accessorKey: f.colName || f.name,
       enableSorting: false,
       header: () => {
         const dir = getSortDir(f.name);
@@ -211,13 +211,14 @@ const columns = computed<TableColumn<IItem>[]>(() => {
   });
 
   const redirCol = result[1];
-  const firstFieldName = props.config?.fields?.[0]?.name || "name";
+  const firstField = props.config?.fields?.[0];
+  const firstFieldKey = firstField?.colName || firstField?.name || "name";
   redirCol.cell = ({ row }) =>
     h(UButton, {
       to: row.original.gen_data?.url,
       color: "link",
       variant: "link",
-      label: String(row.original?.[firstFieldName] ?? ""),
+      label: String(row.original?.[firstFieldKey] ?? ""),
     });
 
   return result;
