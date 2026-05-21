@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.2.5
+
+[compare changes](https://undefined/undefined/compare/v1.2.4...v1.2.5)
+
+### 🩹 Fixes
+
+- Explicit computed import in Image.vue (55987d9)
+
+### ❤️ Contributors
+
+- Suku <sukusovi@gmail.com>
+
 ## v1.2.4
 
 [compare changes](https://undefined/undefined/compare/v1.2.3...v1.2.4)
