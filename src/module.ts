@@ -108,5 +108,10 @@ export default defineNuxtModule<ModuleOptions>({
     if (!hasNuxtModule("@nuxt/ui")) {
       await installModule("@nuxt/ui");
     }
+
+    // Instalace nuxt/image modulu (nutné pro NuxtImg komponentu v Image.vue)
+    if (!hasNuxtModule("@nuxt/image")) {
+      await installModule("@nuxt/image");
+    }
   },
 });
