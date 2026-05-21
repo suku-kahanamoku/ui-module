@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v1.3.0
+
+[compare changes](https://undefined/undefined/compare/v1.2.5...v1.3.0)
+
+### 🚀 Enhancements
+
+- Add @nuxt/image as dependency and install in module setup (1893fab)
+
+### ❤️ Contributors
+
+- Suku <sukusovi@gmail.com>
+
 ## v1.2.5
 
 [compare changes](https://undefined/undefined/compare/v1.2.4...v1.2.5)
