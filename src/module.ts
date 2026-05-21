@@ -67,10 +67,17 @@ export default defineNuxtModule<ModuleOptions>({
       });
     });
 
-    // Přidání komponent
+    // Přidání komponent s prefixem Cmp
     addComponentsDir({
       path: resolve("./runtime/components"),
       prefix: "Cmp",
+      pathPrefix: false,
+    });
+
+    // Přidání komponent s prefixem Ui
+    addComponentsDir({
+      path: resolve("./runtime/components"),
+      prefix: "Ui",
       pathPrefix: false,
     });
 
